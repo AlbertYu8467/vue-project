@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-aside width='250px'>
+    <el-aside width='200px'>
       <h2 class="moive-list-title">电影榜单</h2>
       <div class="movie-billboard clearfix">
         <moive-item v-for="(value,index) in colorList" :key="index" :background='value'></moive-item>
@@ -8,6 +8,22 @@
     </el-aside>
     <el-main>
         <moive-search></moive-search>
+        <div class="moive-list">
+          <moive-info></moive-info>
+          <moive-info></moive-info>
+          <moive-info></moive-info>
+          <moive-info></moive-info>
+          <moive-info></moive-info>
+          <moive-info></moive-info>
+          <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage3"
+          :page-size="100"
+          layout="prev, pager, next, jumper"
+          :total="1000">
+        </el-pagination>
+        </div>
     </el-main>
   </el-container>
 </template>
@@ -15,11 +31,13 @@
 <script>
 import MoiveItem from './MoiveItem'
 import MoiveSearch from './MoiveSearch'
+import MoiveInfo from './MoiveInfo'
 export default {
   name: 'Moive',
   components:{
     MoiveItem,
-    MoiveSearch
+    MoiveSearch,
+    MoiveInfo
   },
   data () {
     return {
@@ -37,11 +55,12 @@ export default {
   padding:15px 0; 
 }
 .movie-billboard {
-  margin-bottom: 15px;
-  padding: 25px;
-  padding-top:0; 
+  padding:0 25px;
 }
 .el-aside {
   background: #f6f6f6;
+}
+.moive-list {
+  padding: 20px;
 }
 </style>

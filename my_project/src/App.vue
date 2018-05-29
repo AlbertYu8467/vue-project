@@ -49,6 +49,10 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: #0000EE;
+}
 .clearfix::after {
   content: "";
   display: block;
@@ -63,5 +67,8 @@ h1,h2,h3,h4,h5,h6 {
   width: 64%;
   margin: 0 auto;
   background: #fff;
+}
+.el-main {
+  padding-bottom: 5px;
 }
 </style>

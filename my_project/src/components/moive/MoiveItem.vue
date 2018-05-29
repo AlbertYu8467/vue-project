@@ -30,8 +30,8 @@ export default {
 <style scoped>
 .rotateBox {
     overflow: hidden;
-    height: 300px;
-    width: 200px;
+    height: 230px;
+    width: 150px;
     float: left;
     position: relative;
     -webkit-perspective: 2000px;
@@ -42,9 +42,9 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 300px;
-    width: 200px;
-    transform-origin: center center -100px;
+    height: 230px;
+    width: 150px;
+    transform-origin: center center -75px;
     transition: .4s;
 }
 .rotateBox:hover .transBox {
@@ -52,13 +52,13 @@ export default {
 }
 .transBox .movie-list-box {
     position: absolute;
-    height: 500px;
+    /*height: 500px;*/
     cursor: pointer;
 }
 .movie-list-box {
     position: relative;
-    height: 300px;
-    width: 200px;
+    height: 230px;
+    width: 150px;
     float: left;
     display: block;
     overflow: hidden;
@@ -68,14 +68,14 @@ export default {
     top: 0;
 }
 .movie-list-name {
-    line-height: 300px;
+    line-height: 230px;
     font-size: 30px;
     font-weight: bolder;
     color: #fff;
     text-align: center;
 }
 .transBox .back {
-    left: 200px;
+    left: 150px;
     top: 0;
     transform-origin: left;
     transform: rotateY(90deg);
@@ -91,8 +91,8 @@ export default {
 }
 .movie-list-cover > img {
     display: block;
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 230px;
 }
 </style>
 
