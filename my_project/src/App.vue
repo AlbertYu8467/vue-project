@@ -64,11 +64,8 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 64%;
+  width: 80%;
   margin: 0 auto;
   background: #fff;
-}
-.el-main {
-  padding-bottom: 5px;
 }
 </style>

@@ -1,27 +1,21 @@
 <template>
-  <el-container>
-    <el-aside width='200px'>
+  <el-container  v-loading.fullscreen.lock="loading">
+    <el-aside width='250px'>
       <h2 class="moive-list-title">电影榜单</h2>
       <div class="movie-billboard clearfix">
-        <moive-item v-for="(value,index) in colorList" :key="index" :background='value'></moive-item>
+        <moive-item v-for="(value,index) in list" :key="index" :info='value'></moive-item>
       </div>
     </el-aside>
     <el-main>
         <moive-search></moive-search>
         <div class="moive-list">
-          <moive-info></moive-info>
-          <moive-info></moive-info>
-          <moive-info></moive-info>
-          <moive-info></moive-info>
-          <moive-info></moive-info>
-          <moive-info></moive-info>
+          <moive-info v-for="(value,index) in subjects" :key='index' :subject='value'></moive-info>
           <el-pagination
-          @size-change="handleSizeChange"
-          @current-change="handleCurrentChange"
-          :current-page.sync="currentPage3"
-          :page-size="100"
-          layout="prev, pager, next, jumper"
-          :total="1000">
+            @current-change="handleCurrentChange"
+            :current-page.sync="pagination.currentPage"
+            :page-size="pagination.pageSize"
+            layout="prev, pager, next, jumper"
+            :total="pagination.total">
         </el-pagination>
         </div>
     </el-main>
@@ -29,6 +23,7 @@
 </template>
 
 <script>
+import jsonp from "jsonp";
 import MoiveItem from './MoiveItem'
 import MoiveSearch from './MoiveSearch'
 import MoiveInfo from './MoiveInfo'
@@ -41,8 +36,88 @@ export default {
   },
   data () {
     return {
-      colorList:['#20A0FF','#13CE66','#F7BA2A']
+      list:[
+        {
+          name:'TOP250',
+          api:'top250',
+          cover:'',
+          color:'#20A0FF'
+        },
+        {
+          name:'正在热映',
+          api:'in_theaters',
+          cover:'',
+          color:'#13CE66'
+        },
+        {
+          name:'即将上映',
+          api:'coming_soon',
+          cover:'',
+          color:'#F7BA2A'
+        },
+      ],
+      activatedInfo:{},
+      subjects:[],
+      pagination:{
+        currentPage:1,
+        pageSize:10,
+        total:0
+      },
+      loading:false,
     }
+  },
+  methods:{
+    toggleInfo(info){
+      this.activatedInfo = info;
+      this.paginate(); 
+    },
+    paginate(){
+      let count = this.pagination.pageSize
+      let start = (this.pagination.currentPage-1)*count
+      if(localStorage.total && localStorage.total > start){
+        this.subjects = localStorage.subjects;
+        return !1;
+      }
+      let api=this.activatedInfo.api;
+      this.loading=true;
+      jsonp('https://api.douban.com/v2/movie/'+api+'?start='+start+'&count='+count, null, (err,data) =>{
+        if(err){
+          this.loading =false;
+          console.log(err.message)
+        }else{
+          this.loading=false;
+          this.pagination.total=data.total;
+          this.subjects=data.subjects;
+          localStorage.subjects = data.subjects;
+          localStorage.total = data.total;
+        }
+      })
+    },
+    handleCurrentChange(current){
+      this.pagination.currentPage=current;
+      this.paginate();
+    }
+  },
+  beforeMount(){
+    this.toggleInfo(this.list[0])
+  },
+  mounted(){
+    if(localStorage.list){
+      localStorage.list.forEach((item,index) =>{
+        this.list[index].cover = item;
+      })
+      return !1;
+    }
+    this.list.forEach((info,index) => {
+      jsonp('https://api.douban.com/v2/movie/'+info.api+'?start=0+&count=1', null, (err,data)=>{
+        if(err){
+          console.log(err.message)
+        }else{
+          this.list[index].cover = data.subjects[0].images.large;
+          localStorage.list.push = data.subjects[0].images.large;
+        }
+      })
+    })
   }
 }
 </script>

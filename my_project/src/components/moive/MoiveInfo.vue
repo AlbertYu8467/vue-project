@@ -1,32 +1,27 @@
 <template>
     <div class="moive-info">
         <div class="moive-cover">
-            <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg" alt="">
+            <img :src="subject.images.small" alt="">
         </div>
         <div class="moive-content">
             <div class="moive-row">
-                肖申克的救赎 ( The Shawshank Redemption )
-                <el-tag type='success' class="movie-genre">犯罪</el-tag>
-                <el-tag type='success' class="movie-genre">剧情</el-tag>
+                {{subject.title}} ( {{subject.original_title}} )
+                <el-tag type='success' class="movie-genre" v-for="(genre,index) in subject.genres" :key='index'>{{genre}}</el-tag>
             </div>
             <div class="moive-row">
                 年份：
-                <span class="movie-tag">1994</span>
+                <span class="movie-tag">{{subject.year}}</span>
                 导演：
-                <a href="www.baidu.com" class="moive-tag">弗兰克·德拉邦特</a>
+                <a :href="director.alt" class="moive-tag" v-for="(director,index) in subject.directors" target="_blank" :key='index'>{{director.name}}</a>
             </div>
             <div class="moive-row">
                 主演：
-                <a href="www.baidu.com" class="movie-tag">蒂姆·罗宾斯</a>
-                <a href="www.baidu.com" class="movie-tag">曼鲍勃·冈顿</a>
+                <a :href="cast.alt" class="movie-tag" v-for="(cast,index) in subject.casts" target="_blank" :key='index'>{{cast.name}}</a>
             </div>
             <div class="moive-row">
                 评分：
-                <span style="color: rgb(247, 186, 42);" class="movie-tag">9.6</span>
-                <a href="www.baidu.com" class="movie-tag">
-                    查看详情
-                    <i class="el-icon-d-arrow-right text-small"></i>
-                </a>
+                <span style="color:#F7BA2A" class="movie-tag">{{subject.rating.average}}</span>
+                <router-link class="movie-tag" :to="{ name: '电影详情', params: { id: subject.id }}">查看详情 <i class="el-icon-d-arrow-right text-small"></i></router-link>
             </div>
         </div>
     </div>
@@ -34,6 +29,9 @@
 <script>
 export default {
     name:'MoiveInfo',
+    props:[
+        'subject'
+    ],
     data(){
         return {
             msg:'ss'
