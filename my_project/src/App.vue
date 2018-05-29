@@ -2,8 +2,11 @@
   <div id="app">
     <el-container>
       <el-header>
-        <el-menu :default-active='activeIndex' class="el-menu-demo" mode='horizontal' :router=true>
-          <el-menu-item index='/'>首页</el-menu-item>
+        <el-menu :default-active='activeIndex' class="el-menu-demo" mode='horizontal' :router=true active-text-color="#ffd04b">
+          <el-menu-item index='/'>
+            <i class="el-icon-star-on"></i>
+            <span slot="title">首页</span>
+          </el-menu-item>
           <el-submenu index='moive'>
             <template slot='title'>娱乐</template>
             <el-menu-item index='moive'>电影</el-menu-item>
@@ -38,8 +41,18 @@ export default {
 </script>
 
 <style>
-body {
-  background: #f6f6f6;  
+* {
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -50,6 +63,5 @@ body {
   width: 64%;
   margin: 0 auto;
   background: #fff;
-
 }
 </style>
