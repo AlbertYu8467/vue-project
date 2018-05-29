@@ -27,6 +27,7 @@ import jsonp from "jsonp";
 import MoiveItem from './MoiveItem'
 import MoiveSearch from './MoiveSearch'
 import MoiveInfo from './MoiveInfo'
+import func from './vue-temp/vue-editor-bridge';
 export default {
   name: 'Moive',
   components:{
@@ -67,17 +68,26 @@ export default {
     }
   },
   methods:{
+    // isEmptyObj(obj){
+    //   return  Object.keys(obj).length
+    // },
     toggleInfo(info){
       this.activatedInfo = info;
       this.paginate(); 
     },
     paginate(){
+      let pageCache;
       let count = this.pagination.pageSize
       let start = (this.pagination.currentPage-1)*count
-      if(localStorage.total && localStorage.total > start){
-        this.subjects = localStorage.subjects;
+      //判断是否为空对象
+      /*pageCache =  this.isEmptyObj(JSON.parse(sessionStorage.pageCache)) ? JSON.parse(sessionStorage.pageCache) : {}
+
+      if(this.isEmptyObj(pageCache) && pageCache[start]){
+        this.subjects = pageCache[start]
+        this.pagination.total = pageCache.total
+        console.log(12345)
         return !1;
-      }
+      }*/
       let api=this.activatedInfo.api;
       this.loading=true;
       jsonp('https://api.douban.com/v2/movie/'+api+'?start='+start+'&count='+count, null, (err,data) =>{
@@ -88,8 +98,9 @@ export default {
           this.loading=false;
           this.pagination.total=data.total;
           this.subjects=data.subjects;
-          localStorage.subjects = data.subjects;
-          localStorage.total = data.total;
+          pageCache.total = data.total;
+          pageCache[start] = data.subjects
+          sessionStorage.pageCache = JSON.stringify(pageCache);
         }
       })
     },
@@ -102,8 +113,9 @@ export default {
     this.toggleInfo(this.list[0])
   },
   mounted(){
-    if(localStorage.list){
-      localStorage.list.forEach((item,index) =>{
+    let tempList = [];
+    if(sessionStorage.list && sessionStorage.list.length  && JSON.parse(sessionStorage.list)){
+      JSON.parse(sessionStorage.list).forEach((item,index) =>{
         this.list[index].cover = item;
       })
       return !1;
@@ -114,7 +126,8 @@ export default {
           console.log(err.message)
         }else{
           this.list[index].cover = data.subjects[0].images.large;
-          localStorage.list.push = data.subjects[0].images.large;
+          tempList[index] = data.subjects[0].images.large;
+          sessionStorage.list = JSON.stringify(tempList)
         }
       })
     })
