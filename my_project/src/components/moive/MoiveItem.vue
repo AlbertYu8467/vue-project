@@ -22,13 +22,13 @@ export default {
     ],
     data(){
         return {
-            msg:'aaa'
+            msg:''
         }
     },
     methods:{
         toggleList(){
-            this.$emit('toggleItem',this.data)
-            console.log(this.data)
+            console.log(this.info)
+            this.$emit('toggle',this.info)
         }
     }
 }

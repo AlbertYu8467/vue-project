@@ -21,7 +21,7 @@
             <div class="moive-row">
                 评分：
                 <span style="color:#F7BA2A" class="movie-tag">{{subject.rating.average}}</span>
-                <router-link class="movie-tag" :to="{ name: '电影详情', params: { id: subject.id }}">查看详情 <i class="el-icon-d-arrow-right text-small"></i></router-link>
+                <router-link class="movie-tag" :to="{ name: '电影详情', params: { id: subject.id }}">查看详情 <i class="el-icon-d-arrow-right text-small"></i></router-link>                
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ export default {
     ],
     data(){
         return {
-            msg:'ss'
+            msg:''
         }
     }
 }

@@ -7,13 +7,13 @@
             <i class="el-icon-star-on"></i>
             <span slot="title">首页</span>
           </el-menu-item>
-          <el-submenu index='moive'>
+          <el-submenu index='/moive'>
             <template slot='title'>娱乐</template>
-            <el-menu-item index='moive'>电影</el-menu-item>
+            <el-menu-item index='/moive'>电影</el-menu-item>
           </el-submenu>
-          <el-submenu index='history'>
+          <el-submenu index='/history'>
             <template slot="title">知识</template>
-            <el-menu-item index='history'>历史</el-menu-item>
+            <el-menu-item index='/history'>历史今天</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-header>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'App',
   data(){
