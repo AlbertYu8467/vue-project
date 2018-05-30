@@ -3,11 +3,11 @@
     <el-aside width='250px'>
       <h2 class="moive-list-title">电影榜单</h2>
       <div class="movie-billboard clearfix">
-        <moive-item v-for="(value,index) in list" :key="index" :info='value'></moive-item>
+        <moive-item v-for="(value,index) in list" :key="index" :info='value' @toggle='toggleInfo'></moive-item>
       </div>
     </el-aside>
     <el-main>
-        <moive-search></moive-search>
+        <moive-search :moiveName='activatedInfo.name'></moive-search>
         <div class="moive-list">
           <moive-info v-for="(value,index) in subjects" :key='index' :subject='value'></moive-info>
           <el-pagination
@@ -67,26 +67,13 @@ export default {
     }
   },
   methods:{
-    // isEmptyObj(obj){
-    //   return  Object.keys(obj).length
-    // },
     toggleInfo(info){
       this.activatedInfo = info;
       this.paginate(); 
     },
     paginate(){
-      let pageCache;
       let count = this.pagination.pageSize
       let start = (this.pagination.currentPage-1)*count
-      //判断是否为空对象
-      /*pageCache =  this.isEmptyObj(JSON.parse(sessionStorage.pageCache)) ? JSON.parse(sessionStorage.pageCache) : {}
-
-      if(this.isEmptyObj(pageCache) && pageCache[start]){
-        this.subjects = pageCache[start]
-        this.pagination.total = pageCache.total
-        console.log(12345)
-        return !1;
-      }*/
       let api=this.activatedInfo.api;
       this.loading=true;
       jsonp('https://api.douban.com/v2/movie/'+api+'?start='+start+'&count='+count, null, (err,data) =>{
@@ -97,9 +84,6 @@ export default {
           this.loading=false;
           this.pagination.total=data.total;
           this.subjects=data.subjects;
-          pageCache.total = data.total;
-          pageCache[start] = data.subjects
-          sessionStorage.pageCache = JSON.stringify(pageCache);
         }
       })
     },
@@ -112,21 +96,12 @@ export default {
     this.toggleInfo(this.list[0])
   },
   mounted(){
-    let tempList = [];
-    if(sessionStorage.list && sessionStorage.list.length  && JSON.parse(sessionStorage.list)){
-      JSON.parse(sessionStorage.list).forEach((item,index) =>{
-        this.list[index].cover = item;
-      })
-      return !1;
-    }
     this.list.forEach((info,index) => {
       jsonp('https://api.douban.com/v2/movie/'+info.api+'?start=0+&count=1', null, (err,data)=>{
         if(err){
           console.log(err.message)
         }else{
           this.list[index].cover = data.subjects[0].images.large;
-          tempList[index] = data.subjects[0].images.large;
-          sessionStorage.list = JSON.stringify(tempList)
         }
       })
     })
