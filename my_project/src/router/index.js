@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Index = resolve => require(['@/components/Index'], resolve)
 const History = resolve => require(['@/components/History'], resolve)
 const NotFound = resolve => require(['@/components/NotFound'], resolve)
+const Music = resolve => require(['@/components/Music'], resolve)
 const Moive = resolve => require(['@/components/moive/Moive'], resolve)
 const MovieDetail = resolve => require(['@/components/moive/MovieDetail'], resolve)
 
@@ -35,6 +36,11 @@ export default new Router({
             path: '/history',
             name: 'History',
             component: History
+        },
+        {
+            path:'/music',
+            name:'Music',
+            component:Music
         },
         {
             path: '*',

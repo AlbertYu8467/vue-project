@@ -10,6 +10,7 @@
           <el-submenu index='/moive'>
             <template slot='title'>娱乐</template>
             <el-menu-item index='/moive'>电影</el-menu-item>
+            <el-menu-item index='/music'>音乐</el-menu-item>
           </el-submenu>
           <el-submenu index='/history'>
             <template slot="title">知识</template>
