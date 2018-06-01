@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <el-menu :default-active='activeIndex' class="el-menu-demo" mode='horizontal' :router=true active-text-color="#ffd04b">
-          <el-menu-item index='/'>
+          <el-menu-item index='/home'>
             <i class="el-icon-star-on"></i>
             <span slot="title">首页</span>
           </el-menu-item>
