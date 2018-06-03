@@ -24,14 +24,14 @@
         <el-table-column prop="title" label="标题" width="200">
         </el-table-column>
         <el-table-column prop="pic" label="图片" width="100">
-          <template scope="scope">
+          <template slot-scope="scope">
             <img v-bind:src="scope.row.pic" role="button" style="height:50px" @click="showPic(scope.row.pic)">
           </template>
         </el-table-column>
         <el-table-column prop="des" label="内容" >
         </el-table-column>
         <el-table-column label="操作" width="100">
-          <template scope="scope">
+          <template slot-scope="scope">
             <el-button size="small" @click="handleDetail(scope.$index, scope.row)">详情</el-button>
           </template>
         </el-table-column>
@@ -143,6 +143,6 @@ import jsonp from "jsonp";
     },
     beforeMount(){
       this.search();
-    }
+    },
   }
 </script>

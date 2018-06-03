@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const Layout = resolve => require(['@/components/Layout'], resolve)
 const Index = resolve => require(['@/components/Index'], resolve)
 const History = resolve => require(['@/components/History'], resolve)
 const NotFound = resolve => require(['@/components/NotFound'], resolve)
@@ -14,46 +15,50 @@ const MovieDetail = resolve => require(['@/components/moive/MovieDetail'], resol
 Vue.use(Router)
 
 export default new Router({
-    routes: [{
+    routes: [
+        {
             path: '/',
             name: '',
-            rediect: '/home'
+            component: Layout,
+            children: [
+                {
+                    path: '/home',
+                    name: '首页',
+                    component: Index
+                },
+                {
+                    path: '/moive',
+                    name: '电影',
+                    component: Moive,
+                },
+                {
+                    path: '/moive/detail/:id',
+                    name: '电影详情',
+                    component: MovieDetail,
+                },
+                {
+                    path: '/history',
+                    name: 'History',
+                    component: History
+                },
+                {
+                    path:'/music',
+                    name:'Music',
+                    component:Music
+                },
+                {
+                    path: '/tearcloth',
+                    component: TearCloth,
+                    name: '信仰之跃',
+                },
+                {
+                    path: '/five',
+                    component: FiveChess,
+                    name: '五子棋',
+                },
+            ]
         },
-        {
-            path: '/home',
-            name: '首页',
-            component: Index
-        },
-        {
-            path: '/moive',
-            name: '电影',
-            component: Moive,
-        },
-        {
-            path: '/moive/detail/:id',
-            name: '电影详情',
-            component: MovieDetail,
-        },
-        {
-            path: '/history',
-            name: 'History',
-            component: History
-        },
-        {
-            path:'/music',
-            name:'Music',
-            component:Music
-        },
-        {
-            path: '/tearcloth',
-            component: TearCloth,
-            name: '信仰之跃',
-        },
-        {
-            path: '/five',
-            component: FiveChess,
-            name: '五子棋',
-        },
+        
         {
             path: '*',
             name: '404',

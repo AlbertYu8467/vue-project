@@ -12,6 +12,8 @@
 <style scoped>
   .fivechess-wrap{
     position:relative;margin:0 auto;width:1200px;
+    left: -10%;
+    overflow: visible;
   }
   #chess,#animate{
     position:absolute;top:0;left:0;width:1200px;height:600px;

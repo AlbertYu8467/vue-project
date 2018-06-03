@@ -97,84 +97,84 @@ export default {
       songList:[
         {
           id:'1',
-          name:'莉莉安',
-          singer:'宋冬野',
-          album:'安和桥北',
-          cover:'https://evanliu2968.github.io/static/images/music/lilian.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/宋冬野 - 莉莉安.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/宋冬野 - 莉莉安.lrc',
-          duration:'04:13'
+          name:'病变',
+          singer:'鞠文娴',
+          album:'病变',
+          cover:'static/images/music/bingbian.jpg',
+          src:'static/images/music/鞠文娴 - BINGBIAN病变 (女声版).mp3',
+          lrc:'static/images/music/病变.lrc',
+          duration:'04:07'
         },
         {
           id:'2',
-          name:'山丘',
-          singer:'李宗盛',
-          album:'山丘',
-          cover:'https://evanliu2968.github.io/static/images/mao.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/李宗盛 - 山丘.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/李宗盛 - 山丘.lrc',
-          duration:'05:49'
+          name:'不仅仅是喜欢',
+          singer:'萧全 / 孙语赛',
+          album:'不仅仅是喜欢',
+          cover:'static/images/music/bujinjin.jpg',
+          src:'static/images/music/萧全 - 不仅仅是喜欢.mp3',
+          lrc:'static/images/music/不仅仅是喜欢.lrc',
+          duration:'3:48'
         },
         {
           id:'3',
-          name:'煎熬',
-          singer:'李佳薇',
-          album:'感谢爱人',
-          cover:'https://evanliu2968.github.io/static/images/music/jianao.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/李佳薇 - 煎熬.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/李佳薇 - 煎熬.lrc',
-          duration:'04:22'
+          name:'佛系少女',
+          singer:'贺子玲',
+          album:'佛系少女',
+          cover:'static/images/music/foxi.jpg',
+          src:'static/images/music/贺子玲 - 佛系少女.mp3',
+          lrc:'static/images/music/佛系少女.lrc',
+          duration:'3:13'
         },
-        {
+          {
           id:'4',
-          name:'漂洋过海来看你',
-          singer:'刘明湘',
-          album:'我不要再比了',
-          cover:'https://evanliu2968.github.io/static/images/music/piao.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/刘明湘 - 漂洋过海来看你.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/刘明湘 - 漂洋过海来看你.lrc',
-          duration:'03:17'
+          name:'带你去旅行',
+          singer:'程子康',
+          album:'带你去旅行',
+          cover:'static/images/music/travel.jpg',
+          src:'static/images/music/程子康 - 带你去旅行.mp3',
+          lrc:'static/images/music/带你去旅行.lrc',
+          duration:'3:45'
         },
-        {
+         {
           id:'5',
-          name:'把悲伤留给自己',
-          singer:'陈升',
-          album:'私奔',
-          cover:'https://evanliu2968.github.io/static/images/music/lonely.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/陈升 - 把悲伤留给自己.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/陈升 - 把悲伤留给自己.lrc',
-          duration:'04:38'
+          name:'123我爱你',
+          singer:'程嘉敏',
+          album:'123我爱你',
+          cover:'static/images/music/123.jpg',
+          src:'static/images/music/程嘉敏 - 123我爱你.mp3',
+          lrc:'static/images/music/123.lrc',
+          duration:'3:19'
         },
-        {
+         {
           id:'6',
-          name:'青花瓷',
-          singer:'周杰伦',
-          album:'我很忙',
-          cover:'https://evanliu2968.github.io/static/images/music/jay.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/青花瓷 - 周杰伦.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/青花瓷 - 周杰伦.lrc',
-          duration:'03:59'
+          name:'纸短情长',
+          singer:'花粥',
+          album:'纸短情长',
+          cover:'static/images/music/zhiduan.jpg',
+          src:'static/images/music/纸短情长.mp3',
+          lrc:'static/images/music/纸短情长.lrc',
+          duration:'3:06'
         },
         {
           id:'7',
-          name:'以父之名',
-          singer:'周杰伦',
-          album:'叶惠美',
-          cover:'https://evanliu2968.github.io/static/images/music/jay.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/周杰伦 - 以父之名.m4a',
-          lrc:'https://evanliu2968.github.io/static/images/music/周杰伦 - 以父之名.lrc',
-          duration:'05:42'
+          name:'planet',
+          singer:'ラムジ',
+          album:'planet',
+          cover:'static/images/music/planet.jpg',
+          src:'static/images/music/planet.mp3',
+          lrc:'static/images/music/planet.lrc',
+          duration:'4:03'
         },
         {
           id:'8',
-          name:'半岛铁盒',
-          singer:'周杰伦',
-          album:'八度空间',
-          cover:'https://evanliu2968.github.io/static/images/music/jay.jpg',
-          src:'https://evanliu2968.github.io/static/images/music/周杰伦 - 半岛铁盒.mp3',
-          lrc:'https://evanliu2968.github.io/static/images/music/周杰伦 - 半岛铁盒.lrc',
-          duration:'05:17'
-        }
+          name:'起风了',
+          singer:'高优桥',
+          album:'起风了',
+          cover:'static/images/music/wind.jpg',
+          src:'static/images/music/起风了.mp3',
+          lrc:'static/images/music/起风了.lrc',
+          duration:'3:13'
+        },
       ],
       player:{
         paused:true,
@@ -193,6 +193,7 @@ export default {
   methods: {
     getLrc:function(){
       this.axios.get(this.cSong.lrc).then( (res) => {
+        console.log(res.data)
         let lrcArr=[];
         let arr=res.data.split('[');
         arr.splice(0,1);

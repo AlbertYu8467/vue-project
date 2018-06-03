@@ -9,6 +9,7 @@ import axios from 'axios';
 import '@/assets/js/util.js';
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import '@/assets/css/app.css'
 
 axios.defaults.headers.common['Accept'] = "application/json;charset=utf-8";
 Vue.prototype.axios = axios
