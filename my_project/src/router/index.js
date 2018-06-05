@@ -15,6 +15,7 @@ const MovieDetail = resolve => require(['@/components/moive/MovieDetail'], resol
 Vue.use(Router)
 
 export default new Router({
+    mode: 'history',
     routes: [
         {
             path: '/',

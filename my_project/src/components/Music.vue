@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 let Player,progressTimer=0,rotateTimer=0;
 export default {
   data: function(){

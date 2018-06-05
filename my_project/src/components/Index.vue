@@ -92,6 +92,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 let echarts = require('echarts/lib/echarts')
 require("echarts/lib/chart/line")
 require('echarts/lib/component/tooltip')

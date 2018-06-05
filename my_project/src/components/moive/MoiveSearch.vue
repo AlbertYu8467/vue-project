@@ -49,6 +49,7 @@
     </div>
 </template>
 <script>
+import $ from 'jquery'
 import jsonp from "jsonp";
 export default {
     name:'MoiveSearch',

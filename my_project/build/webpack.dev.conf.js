@@ -60,11 +60,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             from: path.resolve(__dirname, '../static'),
             to: config.dev.assetsSubDirectory,
             ignore: ['.*']
-        }]),
-        new webpack.ProvidePlugin({
-            jQuery: "jquery",
-            $: "jquery"
-        }),
+        }])
     ]
 })
 
