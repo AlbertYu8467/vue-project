@@ -10,6 +10,7 @@ import '@/assets/js/util.js';
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import '@/assets/css/app.css'
+import store from './store'
 
 axios.defaults.headers.common['Accept'] = "application/json;charset=utf-8";
 Vue.prototype.axios = axios
@@ -36,6 +37,7 @@ router.afterEach(() => {
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })

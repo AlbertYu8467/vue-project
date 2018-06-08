@@ -96,6 +96,7 @@ export default {
     this.toggleInfo(this.list[0])
   },
   mounted(){
+    console.log(this.$store)
     this.list.forEach((info,index) => {
       jsonp('https://api.douban.com/v2/movie/'+info.api+'?start=0+&count=1', null, (err,data)=>{
         if(err){

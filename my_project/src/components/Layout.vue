@@ -12,6 +12,7 @@
           <el-menu-item index='/music'>音乐</el-menu-item>
           <el-menu-item index='/tearcloth'>信仰之跃</el-menu-item>
           <el-menu-item index='/five'>五子棋</el-menu-item>
+          <el-menu-item index='/live'>直播</el-menu-item>
         </el-submenu>
         <el-submenu index='/history'>
           <template slot="title">知识</template>
